@@ -4,11 +4,15 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
     return (
-        <div>
+        <div className={classes.postBlock}>
             my posts
             <div>
-                <textarea name="" id="" cols="70" rows="2"></textarea>
-                <button>add post</button>
+                <div>
+                    <textarea name="" id="" cols="70" rows="2"></textarea>
+                </div>
+                <div>
+                    <button>add post</button>
+                </div>
             </div>
             <div className={classes.posts}>
                 <Post message='hi a am create this blog' />

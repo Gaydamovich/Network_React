@@ -1,0 +1,15 @@
+.heading {
+    border-top: 1px solid dimgray;
+    border-left: 1px solid dimgray;
+    margin-top: 20px;
+}
+
+.heading p{
+    text-align: center;
+    font-size: 25px;
+    color: cornsilk;
+}
+
+.friendsItem {
+    color: cornsilk;
+}

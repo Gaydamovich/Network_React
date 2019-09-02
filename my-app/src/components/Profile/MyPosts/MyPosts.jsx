@@ -1,23 +1,24 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {updateNewPostText} from "../../../state/state";
+import {addNewPostActionCreate, changePostActionCreate} from "../../../state/profileReducer";
 
 const MyPosts = (props) => {
 
     let newPostElem = React.createRef();
 
-    let postElements = props.post
+    let postElements = props.store.getState().profilePage.postData
         .map( p => <Post message={p.message} likes={p.likeCount} />)
 
+
+
     let addNewPost = () => {
-        // let text = newPostElem.current.value;
-        props.addPost()
+        props.dispatch(addNewPostActionCreate())
     }
 
     let changePost = () => {
         let text = newPostElem.current.value;
-        props.updateNewPostText(text);
+        props.dispatch(changePostActionCreate(text));
     }
 
     return (
@@ -29,7 +30,7 @@ const MyPosts = (props) => {
                               ref={newPostElem}
                               cols="70"
                               rows="2"
-                              value={props.new}/>
+                              value={props.store.getState().profilePage.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addNewPost}>add post</button>

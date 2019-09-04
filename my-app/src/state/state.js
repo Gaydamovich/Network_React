@@ -1,7 +1,3 @@
-import profileReducer from "./profileReducer";
-import dialogsReducer from "./dialogsReducer";
-import sidebarReducer from "./sidebarReducer";
-
 let store = {
     _state: {
         profilePage: {
@@ -53,5 +49,3 @@ let store = {
 
     }
 }
-
-export default store

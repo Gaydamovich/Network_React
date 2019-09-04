@@ -1,23 +1,22 @@
-import React from 'react';
-import classes from './Dialogs.module.css';
-import Dialog from "./Dialog/Dialog";
-import Message from "./Message/Message";
-import {newMessageBodyCreate, sendMessageCreate} from "../../state/dialogsReducer";
+import React from 'react'
+import classes from './Dialogs.module.css'
+import Dialog from "./Dialog/Dialog"
+import Message from "./Message/Message"
 
 
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.store.dialogs.map( d => <Dialog name={d.name} id={d.id}/>)
-    let messElements = props.store.messData.map( m => <Message message={m.message}/>)
-    let newMessage = props.store.newMessageBody
+    let dialogsElements = props.state.dialogs.map( d => <Dialog name={d.name} id={d.id}/>)
+    let messElements = props.state.messData.map( m => <Message message={m.message}/>)
+    let newMessage = props.state.newMessageBody
 
     let sendMessage = () => {
-        props.dispatch(sendMessageCreate())
+        props.sendMessageCreate()
     }
     let messageChange = (event) => {
         let body = event.target.value
-        props.dispatch(newMessageBodyCreate(body))
+        props.newMessageBodyCreate(body)
     }
 
     return (
